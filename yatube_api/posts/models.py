@@ -1,4 +1,3 @@
-from tokenize import group
 from django.contrib.auth import get_user_model
 from django.db import models
 
@@ -45,3 +44,14 @@ class Follow(models.Model):
         User, on_delete=models.CASCADE, related_name='follow')
     following = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='following')
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=['user', 'following'],
+                name='unique_user_following'
+            )
+        ]
+
+    def __str__(self) -> str:
+        return self.following
