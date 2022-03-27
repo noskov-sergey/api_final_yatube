@@ -13,6 +13,8 @@ router_v1.register('follow', FollowViewSet, basename='follow')
 
 urlpatterns = [
     path('v1/', include(router_v1.urls)),
-    path('v1/', include('djoser.urls')),
+    # Артем, привет! Не знаю как написать тебе в slack.
+    # Может быть еще что-то добавим, на развитие?
+    # Можно жесткое :) , ведь целая неделя впереди.
     path('v1/', include('djoser.urls.jwt')),
 ]
